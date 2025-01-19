@@ -1,0 +1,13 @@
+$self{texts} = {
+  'Continue'                    => 'Folytatás',
+  'Password'                    => 'Jelszó',
+  'Session expired!'            => 'Lejárt az idő!',
+};
+
+$self{subs} = {
+  'getpassword'                 => 'getpassword',
+  'folytatás'                  => 'continue',
+};
+
+1;
+
