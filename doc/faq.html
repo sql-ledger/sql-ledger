@@ -277,16 +277,22 @@ controls your webserver configuration and add
   # SQL-Ledger
   Include /etc/httpd/sql-ledger-httpd.conf</pre>
 
-Create a file 'sql-ledger-httpd.conf' in /etc/httpd and copy the next part
-into the file.
+Create a file 'sql-ledger-httpd.conf'
+and put the file in the correct location depending on your ux distribution
+it may go in the same location where httpd.conf is
+or some other directory. See the documentation for your distribution.<br/>
+Copy the next part into the file.
 
 <pre>
-  AddHandler cgi-script .pl
-  AddDefaultCharset On
   Alias /sql-ledger /var/www/sql-ledger/
   &lt;Directory /var/www/sql-ledger&gt;
+    AllowOverride All
+    AddHandler cgi-script .pl
+    AddDefaultCharset On
     Options ExecCGI Includes FollowSymlinks
-  &lt;/Directory&gt;
+    Order Allow,Deny
+    Allow from All
+    &lt;/Directory&gt;
 
   &lt;Directory /var/www/sql-ledger/users&gt;
     Order Deny,Allow

@@ -369,21 +369,20 @@ sub install {
 
     $directives = qq|
 Alias /$alias $absolutealias/
-AddHandler cgi-script .pl
-
 <Directory $absolutealias>
+  AllowOverride All
+  AddHandler cgi-script .pl
+  AddDefaultCharset On
   Options ExecCGI Includes FollowSymlinks
-  Require all granted
-  Order Deny,Allow
+  Order Allow,Deny
   Allow from All
 </Directory>
 
 <Directory $absolutealias/users>
-  Require all granted
   Order Deny,Allow
   Deny from All
 </Directory>
-  
+
 |;
 
     print FH $directives;
