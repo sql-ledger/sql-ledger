@@ -99,8 +99,13 @@ rename sql-ledger.conf.default to sql-ledger.conf
 
 edit sql-ledger.conf
 
-create the file sql-ledger-httpd.conf in the same location
-where httpd.conf is and copy the next section into the file
+create the file sql-ledger-httpd.conf
+
+put the file in the correct location depending on your ux distribution
+it may go in the same location where httpd.conf is
+or some other directory. See the documentation for your distribution
+
+copy the next section into the file
 
   Alias /sql-ledger /usr/local/sql-ledger/
   <Directory /usr/local/sql-ledger>
